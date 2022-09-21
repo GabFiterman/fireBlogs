@@ -2,14 +2,24 @@
   <div class="home">
     <BlogPost :post="welcomeScreen"/>
     <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index" />
+
+    <div class="blog-card-wrap">
+      <container>
+        <h3>View more recent blogs</h3>
+        <div class="blog-cards">
+          <BlogCard v-for="(post, index) in sampleBlogCards" :key="index" />
+        </div>
+      </container>
+    </div>
   </div>
 </template>
 
 <script>
 import BlogPost from "../components/BlogPost.vue";
+import BlogCard from "../components/BlogCard.vue";
 export default {
   name: "Home",
-  components: { BlogPost },
+  components: { BlogPost, BlogCard },
   data(){
     return{
       welcomeScreen: {
@@ -56,3 +66,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.blog-card-wrap {
+  h3 {
+    font-weight: 300;
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+}
+</style>
