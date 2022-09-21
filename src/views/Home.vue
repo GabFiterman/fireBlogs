@@ -1,12 +1,15 @@
 <template>
   <div class="home">
+    <BlogPost :post="welcomeScreen"/>
+    <BlogPost :post="post" v-for="(post, index) in sampleBlogPost" :key="index" />
   </div>
 </template>
 
 <script>
+import BlogPost from "../components/BlogPost.vue";
 export default {
   name: "Home",
-  components: {},
+  components: { BlogPost },
   data(){
     return{
       welcomeScreen: {
