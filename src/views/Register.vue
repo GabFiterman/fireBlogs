@@ -37,7 +37,7 @@
         <div v-show="error" class="error">{{ this.errorMsg }}</div>
       </div>
 
-      <button>Sign Up</button>
+      <button @click.prevent="register">Sign Up</button>
 
       <div class="angle"></div>
     </form>
@@ -51,7 +51,7 @@ import password from "../assets/Icons/lock-alt-solid.svg";
 import user from "../assets/Icons/user-alt-light.svg";
 import firebase from "firebase/app";
 import "firebase/auth";
-import db from "../firebase/firebaseInit";
+import db from "../firebase/firebaseInit.js";
 
 export default {
   name: "Register",
@@ -62,10 +62,10 @@ export default {
   },
   data() {
     return {
-      firstName: null,
-      lastName: null,
-      username: null,
-      email: null,
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
       password: null,
       error: null,
       errorMsg: "",
@@ -74,10 +74,10 @@ export default {
   methods: {
     async register() {
       if (
-        this.email !== "" ||
-        this.password !== "" ||
-        this.firstName !== "" ||
-        this.lastName !== "" ||
+        this.email !== "" &&
+        this.password !== "" &&
+        this.firstName !== "" &&
+        this.lastName !== "" &&
         this.username !== ""
       ) {
         this.error = false;

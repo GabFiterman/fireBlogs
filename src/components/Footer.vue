@@ -3,7 +3,7 @@
     <div class="container">
       <div class="left">
         <div class="col-1">
-          <router-link class="header"></router-link>
+          <router-link class="header" to="#"></router-link>
           <ul>
             <li>
               <a href="#"><youtube class="svg-icon"/></a>
@@ -25,9 +25,9 @@
 
             <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
 
-            <router-link v-if="user" class="link" to="#">Create Post</router-link>
+            <router-link class="link" to="#">Create Post</router-link>
 
-            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login In / Register</router-link
+            <router-link class="link" :to="{ name: 'Login' }">Login In / Register</router-link
             >
           </ul>
         </div>
