@@ -34,7 +34,7 @@
           <password class="icon" />
         </div>
 
-        <div v-show="error" class="error">{{this.errorMsg}}</div>
+        <div v-show="error" class="error">{{ this.errorMsg }}</div>
       </div>
 
       <button>Sign Up</button>
@@ -59,8 +59,8 @@ export default {
     password,
     user,
   },
-  data(){
-    return{
+  data() {
+    return {
       firstName: null,
       lastName: null,
       username: null,
@@ -72,19 +72,27 @@ export default {
   },
   methods: {
     async register() {
-      if(
+      if (
         this.email !== '' ||
         this.password !== '' ||
         this.firstName !== '' ||
         this.lastName !== '' ||
         this.username !== ''
-      ){
+      ) {
+        this.error = false;
+        this.errorMsg = '';
+        
+        const firebaseAuth = await firebase.auth();
+        const createUser = await firebaseAuth.createUserWithEmailAndPassword(this.email, this.password);
+        const result = await createUser;
+
         return;
       }
       this.error = true;
-      this.errorMsg = "Please fill out all the fields!";;
-    }
-  }
+      this.errorMsg = 'Please fill out all the fields!';
+      return;
+    },
+  },
 };
 </script>
 
