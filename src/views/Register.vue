@@ -74,20 +74,20 @@ export default {
   methods: {
     async register() {
       if (
-        this.email !== '' ||
-        this.password !== '' ||
-        this.firstName !== '' ||
-        this.lastName !== '' ||
-        this.username !== ''
+        this.email !== "" ||
+        this.password !== "" ||
+        this.firstName !== "" ||
+        this.lastName !== "" ||
+        this.username !== ""
       ) {
         this.error = false;
-        this.errorMsg = '';
-        
+        this.errorMsg = "";
+
         const firebaseAuth = await firebase.auth();
-        const createUser = await firebaseAuth.createUserWithEmailAndPassword(this.email, this.password);
+        const createUser = await firebaseAuth.createUserWithEmailAndPassword(this.email,this.password);
         const result = await createUser;
 
-        const dataBase = db.collection('users').doc(result.user.uid);
+        const dataBase = db.collection("users").doc(result.user.uid);
         await dataBase.set({
           firstName: this.firstName,
           lastName: this.lastName,
@@ -95,10 +95,11 @@ export default {
           email: this.email,
         });
 
+        this.$router.push({ name: "Home" });
         return;
       }
       this.error = true;
-      this.errorMsg = 'Please fill out all the fields!';
+      this.errorMsg = "Please fill out all the fields!";
       return;
     },
   },
