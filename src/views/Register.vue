@@ -4,7 +4,7 @@
       <p class="login-register">
         Already have an account ?
         <router-link class="router link" :to="{ name: 'Login' }">
-          Register
+          Login
         </router-link>
       </p>
       <h2>Create Your FireBlogs Account</h2>
