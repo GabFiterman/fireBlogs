@@ -1,9 +1,15 @@
 <template>
   <div class="reset-password">
     <Modal v-if="modalActive" v-on:close-modal="closeModal" />
-    <Loading v-if="loading"/>
+    <Loading v-if="loading" />
     <div class="form-wrap">
       <form class="reset">
+        <p class="login-register">
+          Go back to 
+          <router-link class="router-link" :to="{ name: 'Login' }">
+            Login
+          </router-link>
+        </p>
         <h2>Reset password</h2>
         <p>Forgot your password? Enter your email to reset it.</p>
         <div class="inputs">
@@ -32,8 +38,8 @@ export default {
   components: {
     email,
     Modal,
-    Loading
-},
+    Loading,
+  },
   data() {
     return {
       email: null,

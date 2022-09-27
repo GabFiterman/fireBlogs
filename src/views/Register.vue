@@ -3,7 +3,7 @@
     <form action="" class="register">
       <p class="login-register">
         Already have an account ?
-        <router-link class="router link" :to="{ name: 'Login' }">
+        <router-link class="router-link" :to="{ name: 'Login' }">
           Login
         </router-link>
       </p>
