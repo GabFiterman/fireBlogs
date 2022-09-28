@@ -1,11 +1,15 @@
 <template>
   <div class="reset-password">
-    <Modal v-if="modalActive" v-on:close-modal="closeModal" />
+    <Modal
+      v-if="modalActive"
+      :modalMessage="modalMessage"
+      v-on:close-modal="closeModal"
+    />
     <Loading v-if="loading" />
     <div class="form-wrap">
       <form class="reset">
         <p class="login-register">
-          Go back to 
+          Go back to
           <router-link class="router-link" :to="{ name: 'Login' }">
             Login
           </router-link>
@@ -19,7 +23,7 @@
           </div>
         </div>
 
-        <button>Sign In</button>
+        <button @click.prevent="resetPassword">Reset Your Password</button>
 
         <div class="angle"></div>
       </form>
@@ -32,6 +36,8 @@
 import email from "../assets/Icons/envelope-regular.svg";
 import Modal from "../components/Modal.vue";
 import Loading from "../components/Loading.vue";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 export default {
   name: "ForgotPassword",
@@ -49,6 +55,23 @@ export default {
     };
   },
   methods: {
+    resetPassword() {
+      this.loading = true;
+      firebase
+        .auth()
+        .sendPasswordResetEmail(this.email)
+        .then(() => {
+          this.modalMessage = "If your account exists, you will recive a email";
+          this.loading = false;
+          this.modalActive = true;
+          // this.$router.push({ name: "Login" });
+        })
+        .catch((err) => {
+          this.modalMessage = err;
+          this.loading = false;
+          this.modalActive = true;
+        });
+    },
     closeModal() {
       this.modalActive = !this.modalActive;
       this.email = "";
