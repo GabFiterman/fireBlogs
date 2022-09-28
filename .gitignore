@@ -23,3 +23,4 @@ pnpm-debug.log*
 *.sw?
 
 users.json
+Firebase_Auth()_currentUser_API-RESPONSE.json

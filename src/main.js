@@ -19,5 +19,13 @@ firebase.auth().onAuthStateChanged(() => {
       store,
       render: (h) => h(App),
     }).$mount("#app");
+
+    console.warn(`
+      -------------------------------- \n
+      You are LoggedIn with: \n
+      email: ${firebase.auth().currentUser.email}\n
+      uid: ${firebase.auth().currentUser.uid} \n
+      --------------------------------
+    `);
   }
 });
