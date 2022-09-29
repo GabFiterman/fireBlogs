@@ -24,3 +24,5 @@ pnpm-debug.log*
 
 users.json
 Firebase_Auth()_currentUser_API-RESPONSE.json
+_annotations.txt
+/src/store/Store_State.json

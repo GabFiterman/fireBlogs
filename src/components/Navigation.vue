@@ -5,6 +5,7 @@
         <router-link class="header" :to="{ name: 'Home' }"
           >FireBlogs</router-link
         >
+        <h3 style="margin-left: 1rem; background-color: rgba(0,0,0,0.5); color: white; padding: 5px">{{this.$store.state.profileFirstName}} {{this.$store.state.profileLastName}}</h3>
       </div>
       <div class="nav-links">
         <ul v-if="!mobile">
