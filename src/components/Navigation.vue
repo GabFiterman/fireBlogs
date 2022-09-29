@@ -5,13 +5,14 @@
         <router-link class="header" :to="{ name: 'Home' }"
           >FireBlogs</router-link
         >
+        <h3 style="margin-left: 1rem; background-color: rgba(0,0,0,0.5); color: white; padding: 5px">{{this.$store.state.profileFirstName}} {{this.$store.state.profileLastName}}</h3>
       </div>
       <div class="nav-links">
         <ul v-if="!mobile">
           <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
           <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
           <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" to="#">Login/Register</router-link>
+          <router-link class="link" :to="{ name: 'Login' }">Login/Register</router-link>
         </ul>
       </div>
     </nav>
@@ -21,7 +22,7 @@
         <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
         <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
         <router-link class="link" to="#">Create Post</router-link>
-        <router-link class="link" to="#">Ligin/Register</router-link>
+        <router-link class="link" :to="{ name: 'Login' }">Login/Register</router-link>
       </ul>
     </transition>
   </header>
