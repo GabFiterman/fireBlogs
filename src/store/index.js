@@ -42,7 +42,7 @@ export default new Vuex.Store({
   mutations: {
     toggleEditPost(state, payload) {
       state.editPost = payload;
-      console.log(state.editPost);
+      console.log('state.editPost: ' + state.editPost);
     },
     updateUser(state, payload) {
       state.user = payload;
@@ -53,7 +53,7 @@ export default new Vuex.Store({
       state.profileFirstName = doc.data().firstName;
       state.profileLastName = doc.data().lastName;
       state.profileUsername = doc.data().username;
-      console.log(state.profileId);
+      console.log('state.profileId: ' + state.profileId);
     },
     setProfileInitials(state) {
       state.profileInitials =
@@ -68,6 +68,7 @@ export default new Vuex.Store({
         .doc(firebase.auth().currentUser.uid);
 
       const dbResults = await dataBase.get();
+      console.log('dbResults');
       console.log(dbResults);
 
       commit("setProfileInfo", dbResults);

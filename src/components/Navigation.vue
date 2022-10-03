@@ -1,39 +1,32 @@
 <template>
   <header>
     <nav class="container">
+
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }"
-          >FireBlogs</router-link
-        >
-        <h3
-          v-if="user"
-          style="margin-left: 1rem; 
+        <router-link class="header" :to="{ name: 'Home' }">FireBlogs</router-link>
+
+        <h3 v-if="user" style="margin-left: 1rem; 
             background-color: rgba(154, 4, 234, 0.45); 
             color: white; 
             padding: 5px;
             border-radius: 4px;
-            box-shadow: var(main-box-);"
-        >
+            box-shadow: var(main-box-);">
           {{ this.$store.state.profileFirstName }}
           {{ this.$store.state.profileLastName }}
         </h3>
       </div>
+
       <div class="nav-links">
         <ul v-if="!mobile">
           <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
           <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
           <router-link class="link" to="#">Create Post</router-link>
-          <router-link class="link" :to="{ name: 'Login' }"
-            >Login/Register</router-link
-          >
+          <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login/Register</router-link>
         </ul>
-        <div
-          v-if="user"
-          @click="toggleProfileMenu"
-          class="profile"
-          ref="profile"
-        >
+
+        <div v-if="user" @click="toggleProfileMenu" class="profile" ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
+
           <div v-show="profileMenu" class="profile-menu">
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
@@ -46,6 +39,7 @@
                 <p>{{ this.$store.state.profileEmail }}</p>
               </div>
             </div>
+
             <div class="options">
               <div class="option">
                 <router-link class="option" to="#">
@@ -70,15 +64,15 @@
         </div>
       </div>
     </nav>
+
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
+
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
         <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
         <router-link class="link" to="#">Create Post</router-link>
-        <router-link class="link" :to="{ name: 'Login' }"
-          >Login/Register</router-link
-        >
+        <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login/Register</router-link>
       </ul>
     </transition>
   </header>
@@ -183,6 +177,7 @@ header {
         text-decoration: none;
       }
     }
+
     .nav-links {
       position: relative;
       display: flex;
@@ -297,6 +292,7 @@ header {
     height: 25px;
     width: auto;
   }
+
   .mobile-nav {
     padding: 20px;
     width: 70%;
@@ -308,6 +304,7 @@ header {
     background-color: #303030;
     top: 0;
     left: 0;
+
     .link {
       padding: 15px 0;
       color: #fff;
