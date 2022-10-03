@@ -20,11 +20,12 @@ firebase.auth().onAuthStateChanged(() => {
       render: (h) => h(App),
     }).$mount("#app");
 
-    console.warn(`
+    console.log(`
       -------------------------------- \n
       You are LoggedIn with: \n
       email: ${firebase.auth().currentUser.email}\n
       uid: ${firebase.auth().currentUser.uid} \n
+      user: ${firebase.auth.currentUser}
       --------------------------------
     `);
   }

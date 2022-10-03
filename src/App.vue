@@ -30,7 +30,6 @@ export default {
       this.$store.commit("updateUser", user);
       if(user){
         this.$store.dispatch("getCurrentUser");
-        console.log(`Welcome Mr. ${this.$store.state.profileLastName}`);
       }
     });
     this.checkRoute();
@@ -62,6 +61,13 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root{
+  main-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  
+}
+
 * {
   margin: 0;
   padding: 0;

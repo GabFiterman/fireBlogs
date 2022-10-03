@@ -60,8 +60,7 @@ export default {
       width: 80px;
       height: 30px;
       border-radius: 20px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: var(main-box-shadow);
     }
     input[type="checkbox"]:before {
       content: "";
@@ -74,8 +73,7 @@ export default {
       background: #303030;
       transform: scale(1.1);
       transition: 750ms ease all;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: var(main-box-shadow);
     }
     input:checked[type="checkbox"]:before {
       background: #fff;
